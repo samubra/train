@@ -7,6 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <![endif]-->
     
+
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js'></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js'></script>
+   
+    
     <title><?php echo $this->pageTitle;?></title>
 
     
@@ -16,12 +22,8 @@
     <![endif]-->            
     <link rel='stylesheet' type='text/css' href='<?php echo app()->theme->baseUrl;?>/public/css/fullcalendar.print.css' media='print' />
     
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js'></script>
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js'></script>
-    <script type='text/javascript' src='<?php echo app()->theme->baseUrl;?>/public/js/plugins/jquery/jquery.mousewheel.min.js'></script>
-    
-    <script type='text/javascript' src='<?php echo app()->theme->baseUrl;?>/public/js/plugins/cookie/jquery.cookies.2.2.0.min.js'></script>
-    
+    <script type='text/javascript' src='<?php echo app()->theme->baseUrl;?>/public/js/plugins/cookie/jquery.cookies.2.2.0.min.js'></script>   
+     <script type='text/javascript' src='<?php echo app()->theme->baseUrl;?>/public/js/plugins/jquery/jquery.mousewheel.min.js'></script>
     <script type='text/javascript' src='<?php echo app()->theme->baseUrl;?>/public/js/plugins/bootstrap.min.js'></script>
     
     <script type='text/javascript' src='<?php echo app()->theme->baseUrl;?>/public/js/plugins/charts/excanvas.min.js'></script>
@@ -145,7 +147,7 @@
                     <li><span class="icon-share-alt"></span> <a href="<?php echo url('/user/logout');?>">注销</a></li>
                 </ul>
                 <div class="info">
-                    <span>欢迎回来，最近登录是在： <br/>2012-12-19 21：46</span>
+                    <span>欢迎回来，最近登录是在： <br/><?php echo user()->lastvisit_at;?></span>
                 </div>
             </div>
 
@@ -164,7 +166,7 @@
                                 array('label'=>'New Arrivals', 'url'=>array('product/new', 'tag'=>'new'),'icon'=>'icon-plus'),
                                 array('label'=>'New Arrivals', 'url'=>array('product/new', 'tag'=>'new'),'icon'=>'icon-edit'),
                                 array('label'=>'New Arrivals', 'url'=>array('product/new', 'tag'=>'new'),'icon'=>'icon-delete'),)),
-                        /*array('label'=>'权限管理', 'url'=>array('/rights'), 'visible'=>Yii::app()->getModule('user')->isAdmin(),'icon'=>'isw-unlock',
+                        array('label'=>'权限管理', 'url'=>array('/rights'), 'visible'=>Yii::app()->getModule('user')->isAdmin(),'icon'=>'isw-unlock',
                             'itemOptions'=>array('class'=>'openable'),
                             'items'=>array(
                                 array(
@@ -197,7 +199,7 @@
                                     'itemOptions'=>array('class'=>'item-operations'),
                                     'icon'=>'icon-fire'
                                 ),
-                            )),*/
+                            )),
                     )
             )
         );

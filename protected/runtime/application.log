@@ -1,564 +1,156 @@
-2013/03/13 22:40:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in /home/samubra/htdocs/yii/framework/db/CDbConnection.php:382
+2013/03/16 22:45:03 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" 正尝试选择一个无效的栏位 "user.lastvisit_at". 注意, 该栏位必须存在于 table 中或者是一个具别名的 expression.' in /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php:940
 Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
-#1 /home/samubra/htdocs/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
-#2 /home/samubra/htdocs/yii/framework/base/CModule.php(388): CDbConnection->init()
-#3 /home/samubra/htdocs/yii/framework/base/CModule.php(104): CModule->getComponent('db')
-#4 /home/samubra/htdocs/yii/framework/gii/generators/model/ModelCode.php(57): CModule->__get('db')
-#5 /home/samubra/htdocs/yii/framework/web/CFormModel.php(40): ModelCode->init()
-#6 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(154): CFormModel->__construct()
-#7 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(64): CCodeGenerator->prepare()
-#8 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): CCodeGenerator->actionIndex()
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#10 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#11 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#13 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii/giixModel')
-#14 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#15 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#16 {main}
-REQUEST_URI=/train/index.php?r=gii/giixModel
-HTTP_REFERER=http://localhost/train/index.php?r=gii/default/index
+#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(1232): CJoinElement->getColumnSelect(Array)
+#1 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(418): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(1296): CActiveFinder->query(Object(CDbCriteria), false)
+#4 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(1459): CActiveRecord->query(Object(CDbCriteria))
+#5 /home/samubra/htdocs/train/protected/modules/user/components/UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#6 /home/samubra/htdocs/train/protected/modules/user/models/UserLogin.php(52): UserIdentity->authenticate()
+#7 /home/samubra/htdocs/yii/framework/validators/CInlineValidator.php(43): UserLogin->authenticate('password', Array)
+#8 /home/samubra/htdocs/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#9 /home/samubra/htdocs/yii/framework/base/CModel.php(158): CValidator->validate(Object(UserLogin), NULL)
+#10 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(20): CModel->validate()
+#11 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
+#12 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#14 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
+#16 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
+#17 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#18 /home/samubra/htdocs/train/index.php(16): CApplication->run()
+#19 {main}
+REQUEST_URI=/train/index.php?r=user/login
+HTTP_REFERER=http://localhost/train/index.php?r=user/login
 ---
-2013/03/13 22:45:31 [error] [exception.CException] exception 'CException' with message '属性 "CDbConnection.db.tablePrefix" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:174
+2013/03/16 22:48:29 [error] [php] Object of class CHttpSession could not be converted to string (/home/samubra/htdocs/yii/framework/db/schema/CDbColumnSchema.php:141)
 Stack trace:
-#0 /home/samubra/htdocs/yii/framework/YiiBase.php(222): CComponent->__set('db.tablePrefix', 'train_')
-#1 /home/samubra/htdocs/yii/framework/base/CModule.php(387): YiiBase::createComponent(Array)
-#2 /home/samubra/htdocs/yii/framework/base/CModule.php(104): CModule->getComponent('db')
-#3 /home/samubra/htdocs/yii/framework/gii/generators/model/ModelCode.php(57): CModule->__get('db')
-#4 /home/samubra/htdocs/yii/framework/web/CFormModel.php(40): ModelCode->init()
-#5 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(154): CFormModel->__construct()
-#6 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(64): CCodeGenerator->prepare()
-#7 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): CCodeGenerator->actionIndex()
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#10 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#12 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii/giixModel')
-#13 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#14 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#15 {main}
-REQUEST_URI=/train/index.php?r=gii/giixModel
-HTTP_REFERER=http://localhost/train/index.php?r=gii/default/index
----
-2013/03/13 22:45:32 [error] [exception.CException] exception 'CException' with message '属性 "CDbConnection.db.tablePrefix" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:174
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/YiiBase.php(222): CComponent->__set('db.tablePrefix', 'train_')
-#1 /home/samubra/htdocs/yii/framework/base/CModule.php(387): YiiBase::createComponent(Array)
-#2 /home/samubra/htdocs/yii/framework/base/CModule.php(104): CModule->getComponent('db')
-#3 /home/samubra/htdocs/yii/framework/gii/generators/model/ModelCode.php(57): CModule->__get('db')
-#4 /home/samubra/htdocs/yii/framework/web/CFormModel.php(40): ModelCode->init()
-#5 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(154): CFormModel->__construct()
-#6 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(64): CCodeGenerator->prepare()
-#7 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): CCodeGenerator->actionIndex()
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#10 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#12 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii/giixModel')
-#13 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#14 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#15 {main}
-REQUEST_URI=/train/index.php?r=gii/giixModel
-HTTP_REFERER=http://localhost/train/index.php?r=gii/default/index
----
-2013/03/13 22:45:33 [error] [exception.CException] exception 'CException' with message '属性 "CDbConnection.db.tablePrefix" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:174
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/YiiBase.php(222): CComponent->__set('db.tablePrefix', 'train_')
-#1 /home/samubra/htdocs/yii/framework/base/CModule.php(387): YiiBase::createComponent(Array)
-#2 /home/samubra/htdocs/yii/framework/base/CModule.php(104): CModule->getComponent('db')
-#3 /home/samubra/htdocs/yii/framework/gii/generators/model/ModelCode.php(57): CModule->__get('db')
-#4 /home/samubra/htdocs/yii/framework/web/CFormModel.php(40): ModelCode->init()
-#5 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(154): CFormModel->__construct()
-#6 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(64): CCodeGenerator->prepare()
-#7 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): CCodeGenerator->actionIndex()
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#10 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#12 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii/giixModel')
-#13 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#14 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#15 {main}
-REQUEST_URI=/train/index.php?r=gii/giixModel
-HTTP_REFERER=http://localhost/train/index.php?r=gii/default/index
----
-2013/03/13 22:45:34 [error] [exception.CException] exception 'CException' with message '属性 "CDbConnection.db.tablePrefix" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:174
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/YiiBase.php(222): CComponent->__set('db.tablePrefix', 'train_')
-#1 /home/samubra/htdocs/yii/framework/base/CModule.php(387): YiiBase::createComponent(Array)
-#2 /home/samubra/htdocs/yii/framework/base/CModule.php(104): CModule->getComponent('db')
-#3 /home/samubra/htdocs/yii/framework/gii/generators/model/ModelCode.php(57): CModule->__get('db')
-#4 /home/samubra/htdocs/yii/framework/web/CFormModel.php(40): ModelCode->init()
-#5 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(154): CFormModel->__construct()
-#6 /home/samubra/htdocs/yii/framework/gii/CCodeGenerator.php(64): CCodeGenerator->prepare()
-#7 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): CCodeGenerator->actionIndex()
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#10 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#12 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('gii/giixModel')
-#13 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#14 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#15 {main}
-REQUEST_URI=/train/index.php?r=gii/giixModel
-HTTP_REFERER=http://localhost/train/index.php?r=gii/default/index
----
-2013/03/13 22:51:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'train.train_users' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `train_users`.
-in /home/samubra/htdocs/train/protected/modules/user/controllers/DefaultController.php (18)
+#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(1064): User->updateByPk()
+#1 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(796): User->update()
+#2 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(37): User->save()
+#3 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(21): LoginController->lastViset()
+#4 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
+#5 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /home/samubra/htdocs/yii/framework/web/CController.php(287): LoginController->runAction()
+#7 /home/samubra/htdocs/yii/framework/web/CController.php(266): LoginController->runActionWithFilters()
+#8 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): LoginController->run()
+#9 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
+REQUEST_URI=/train/index.php?r=user/login
+in /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php (37)
+in /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php (21)
 in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 22:51:08 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "User" 对应的 table "{{users}}".' in /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php:2312
+2013/03/16 23:09:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "rights"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
 Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(User))
-#1 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(75): CActiveRecord::model('User')
-#2 /home/samubra/htdocs/train/protected/modules/user/controllers/DefaultController.php(18): CActiveDataProvider->__construct('User', Array)
-#3 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): DefaultController->actionIndex()
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#6 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#8 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user')
-#9 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#10 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#11 {main}
-REQUEST_URI=/train/index.php?r=user
----
-2013/03/13 22:54:10 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" 正尝试选择一个无效的栏位 "user.lastvisit_at". 注意, 该栏位必须存在于 table 中或者是一个具别名的 expression.' in /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php:940
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(1232): CJoinElement->getColumnSelect('user.id, user.u...')
-#1 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(706): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
-#2 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(155): CJoinElement->count(Object(CDbCriteria))
-#3 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(1544): CActiveFinder->count(Object(CDbCriteria))
-#4 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
-#5 /home/samubra/htdocs/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
-#6 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
-#7 /home/samubra/htdocs/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
-#8 /home/samubra/htdocs/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
-#9 /home/samubra/htdocs/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
-#10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(148): CGridView->init()
-#11 /home/samubra/htdocs/yii/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.gri...', Array)
-#12 /home/samubra/htdocs/train/protected/modules/user/views/user/index.php(27): CBaseController->widget('zii.widgets.gri...', Array)
-#13 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#14 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('/user/index', Array, true)
-#17 /home/samubra/htdocs/train/protected/modules/user/controllers/DefaultController.php(22): CController->render('/user/index', Array)
-#18 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): DefaultController->actionIndex()
-#19 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#20 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#21 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#22 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#23 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user')
-#24 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#25 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#26 {main}
-REQUEST_URI=/train/index.php?r=user
----
-2013/03/13 22:55:32 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" 正尝试选择一个无效的栏位 "user.lastvisit_at". 注意, 该栏位必须存在于 table 中或者是一个具别名的 expression.' in /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php:940
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(1232): CJoinElement->getColumnSelect('user.id, user.u...')
-#1 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(706): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
-#2 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(155): CJoinElement->count(Object(CDbCriteria))
-#3 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(1544): CActiveFinder->count(Object(CDbCriteria))
-#4 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
-#5 /home/samubra/htdocs/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
-#6 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
-#7 /home/samubra/htdocs/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
-#8 /home/samubra/htdocs/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
-#9 /home/samubra/htdocs/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
-#10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(148): CGridView->init()
-#11 /home/samubra/htdocs/yii/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.gri...', Array)
-#12 /home/samubra/htdocs/train/protected/modules/user/views/user/index.php(27): CBaseController->widget('zii.widgets.gri...', Array)
-#13 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#14 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('/user/index', Array, true)
-#17 /home/samubra/htdocs/train/protected/modules/user/controllers/DefaultController.php(22): CController->render('/user/index', Array)
-#18 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): DefaultController->actionIndex()
-#19 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#20 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#21 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#22 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#23 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user')
-#24 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#25 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#26 {main}
-REQUEST_URI=/train/index.php?r=user
----
-2013/03/13 22:55:33 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" 正尝试选择一个无效的栏位 "user.lastvisit_at". 注意, 该栏位必须存在于 table 中或者是一个具别名的 expression.' in /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php:940
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(1232): CJoinElement->getColumnSelect('user.id, user.u...')
-#1 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(706): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
-#2 /home/samubra/htdocs/yii/framework/db/ar/CActiveFinder.php(155): CJoinElement->count(Object(CDbCriteria))
-#3 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(1544): CActiveFinder->count(Object(CDbCriteria))
-#4 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
-#5 /home/samubra/htdocs/yii/framework/web/CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
-#6 /home/samubra/htdocs/yii/framework/web/CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
-#7 /home/samubra/htdocs/yii/framework/web/CDataProvider.php(137): CActiveDataProvider->fetchData()
-#8 /home/samubra/htdocs/yii/framework/zii/widgets/CBaseListView.php(108): CDataProvider->getData()
-#9 /home/samubra/htdocs/yii/framework/zii/widgets/grid/CGridView.php(289): CBaseListView->init()
-#10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(148): CGridView->init()
-#11 /home/samubra/htdocs/yii/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.gri...', Array)
-#12 /home/samubra/htdocs/train/protected/modules/user/views/user/index.php(27): CBaseController->widget('zii.widgets.gri...', Array)
-#13 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#14 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('/user/index', Array, true)
-#17 /home/samubra/htdocs/train/protected/modules/user/controllers/DefaultController.php(22): CController->render('/user/index', Array)
-#18 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): DefaultController->actionIndex()
-#19 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#20 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#21 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#22 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#23 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user')
-#24 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#25 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#26 {main}
-REQUEST_URI=/train/index.php?r=user
----
-2013/03/13 22:56:28 [error] [exception.CException] exception 'CException' with message '属性 "User.lastvisit_at" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:131
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('lastvisit_at')
-#1 /home/samubra/htdocs/train/protected/modules/user/views/user/view.php(34): CActiveRecord->__get('lastvisit_at')
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#3 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('view', Array, true)
-#6 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(45): CController->render('view', Array)
-#7 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): UserController->actionView()
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#9 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#10 /home/samubra/htdocs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
-#11 /home/samubra/htdocs/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
-#12 /home/samubra/htdocs/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
-#13 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#14 /home/samubra/htdocs/yii/framework/web/CController.php(292): CFilterChain->run()
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('view')
-#17 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/user/view')
-#18 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#19 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#20 {main}
-REQUEST_URI=/train/index.php?r=user/user/view&id=1
-HTTP_REFERER=http://localhost/train/index.php?r=user
----
-2013/03/13 22:56:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "user.login"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user.login')
+#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('rights')
 #1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
 #2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
 #3 {main}
-REQUEST_URI=/train/index.php?r=user.login
+REQUEST_URI=/train/index.php?r=rights
 ---
-2013/03/13 22:56:46 [error] [exception.CException] exception 'CException' with message '属性 "User.lastvisit_at" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:131
+2013/03/16 23:10:39 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'train.AuthItem' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM AuthItem.
+in /home/samubra/htdocs/train/protected/modules/rights/components/RInstaller.php (180)
+in /home/samubra/htdocs/train/protected/modules/rights/controllers/InstallController.php (43)
+in /home/samubra/htdocs/train/index.php (16)
+2013/03/16 23:10:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'train.AuthAssignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid.
+in /home/samubra/htdocs/train/protected/modules/rights/components/RAuthorizer.php (341)
+in /home/samubra/htdocs/train/protected/modules/rights/components/RWebUser.php (21)
+in /home/samubra/htdocs/train/protected/modules/user/models/UserLogin.php (57)
+2013/03/16 23:10:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'train.AuthAssignment' doesn't exist. The SQL statement executed was: SELECT *
+FROM `AuthAssignment`
+WHERE userid=:userid' in /home/samubra/htdocs/yii/framework/db/CDbCommand.php:528
 Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('lastvisit_at')
-#1 /home/samubra/htdocs/train/protected/modules/user/components/WebUser.php(42): CActiveRecord->__get('lastvisit_at')
-#2 /home/samubra/htdocs/train/protected/modules/user/components/WebUser.php(33): WebUser->updateSession()
-#3 /home/samubra/htdocs/yii/framework/web/auth/CWebUser.php(239): WebUser->afterLogin(false)
-#4 /home/samubra/htdocs/train/protected/modules/user/models/UserLogin.php(57): CWebUser->login(Object(UserIdentity), 0)
-#5 /home/samubra/htdocs/yii/framework/validators/CInlineValidator.php(43): UserLogin->authenticate('password', Array)
-#6 /home/samubra/htdocs/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
-#7 /home/samubra/htdocs/yii/framework/base/CModel.php(158): CValidator->validate(Object(UserLogin), NULL)
-#8 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(19): CModel->validate()
-#9 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#10 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#11 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#12 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#13 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#14 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#15 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#16 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#17 {main}
+#0 /home/samubra/htdocs/yii/framework/db/CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /home/samubra/htdocs/yii/framework/web/auth/CDbAuthManager.php(338): CDbCommand->queryAll()
+#2 /home/samubra/htdocs/train/protected/modules/rights/components/RAuthorizer.php(341): CDbAuthManager->getAuthAssignments('1')
+#3 /home/samubra/htdocs/train/protected/modules/rights/components/RWebUser.php(21): RAuthorizer->isSuperuser('1')
+#4 /home/samubra/htdocs/yii/framework/web/auth/CWebUser.php(239): RWebUser->afterLogin(false)
+#5 /home/samubra/htdocs/train/protected/modules/user/models/UserLogin.php(57): CWebUser->login(Object(UserIdentity), 0)
+#6 /home/samubra/htdocs/yii/framework/validators/CInlineValidator.php(43): UserLogin->authenticate('password', Array)
+#7 /home/samubra/htdocs/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#8 /home/samubra/htdocs/yii/framework/base/CModel.php(158): CValidator->validate(Object(UserLogin), NULL)
+#9 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(20): CModel->validate()
+#10 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
+#11 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#12 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#13 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
+#15 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
+#16 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /home/samubra/htdocs/train/index.php(16): CApplication->run()
+#18 {main}
 REQUEST_URI=/train/index.php?r=user/login
 HTTP_REFERER=http://localhost/train/index.php?r=user/login
 ---
-2013/03/13 22:57:56 [error] [exception.CException] exception 'CException' with message '属性 "User.lastvisit" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:174
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/db/ar/CActiveRecord.php(160): CComponent->__set('lastvisit', 1363186676)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(35): CActiveRecord->__set('lastvisit', 1363186676)
-#2 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(20): LoginController->lastViset()
-#3 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#6 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#8 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#9 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#10 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#11 {main}
-REQUEST_URI=/train/index.php?r=user/login
-HTTP_REFERER=http://localhost/train/index.php?r=user/login
----
-2013/03/13 23:01:15 [error] [exception.CException] exception 'CException' with message '属性 "UserController.blockIcon" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:131
+2013/03/16 23:13:32 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'train.AuthItem' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM AuthItem.
+in /home/samubra/htdocs/train/protected/modules/rights/components/RInstaller.php (180)
+in /home/samubra/htdocs/train/protected/modules/rights/controllers/InstallController.php (43)
+in /home/samubra/htdocs/train/index.php (16)
+2013/03/16 23:24:50 [error] [exception.CException] exception 'CException' with message '属性 "AssignmentController.blockIcon" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:131
 Stack trace:
 #0 /home/samubra/htdocs/train/themes/aquarius/views/layouts/column2.php(7): CComponent->__get('blockIcon')
 #1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
 #2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(785): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#4 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(65): CController->render('index', Array)
-#5 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): UserController->actionIndex()
-#6 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#7 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#8 /home/samubra/htdocs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
-#10 /home/samubra/htdocs/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
-#11 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#12 /home/samubra/htdocs/yii/framework/web/CController.php(292): CFilterChain->run()
-#13 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#14 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('index')
-#15 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/user/index')
-#16 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#17 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#18 {main}
-REQUEST_URI=/train/index.php?r=user/user/index
-HTTP_REFERER=http://localhost/train/index.php?r=user/user/view&id=1
----
-2013/03/13 23:02:17 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:02:19 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:04:32 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:04:33 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:04:33 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:04:34 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:04:34 [error] [php] include(RController.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/protected/components/Controller.php(7): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/YiiBase.php(423): include()
-#2 unknown(0): autoload()
-#3 /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php(4): spl_autoload_call()
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(355): require()
-#5 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(339): CWebApplication->createController()
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(277): CWebApplication->createController()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/user/index
-in /home/samubra/htdocs/train/protected/components/Controller.php (7)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/UserController.php (4)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/13 23:07:37 [error] [exception.CException] exception 'CException' with message 'Filter "rights" is invalid. Controller "DefaultController" does not have the filter method "filterrights".' in /home/samubra/htdocs/yii/framework/web/filters/CInlineFilter.php:47
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(73): CInlineFilter::create(Object(DefaultController), 'rights')
-#1 /home/samubra/htdocs/yii/framework/web/CController.php(292): CFilterChain::create(Object(DefaultController), Object(CInlineAction), Array)
-#2 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#3 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/')
-#5 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#6 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#7 {main}
-REQUEST_URI=/train/index.php?r=user/
----
-2013/03/13 23:07:38 [error] [exception.CException] exception 'CException' with message 'Filter "rights" is invalid. Controller "DefaultController" does not have the filter method "filterrights".' in /home/samubra/htdocs/yii/framework/web/filters/CInlineFilter.php:47
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(73): CInlineFilter::create(Object(DefaultController), 'rights')
-#1 /home/samubra/htdocs/yii/framework/web/CController.php(292): CFilterChain::create(Object(DefaultController), Object(CInlineAction), Array)
-#2 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#3 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#4 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/')
-#5 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#6 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#7 {main}
-REQUEST_URI=/train/index.php?r=user/
----
-2013/03/13 23:21:32 [error] [exception.CException] exception 'CException' with message '属性 "CHttpRequest.theme" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:131
-Stack trace:
-#0 /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php(7): CComponent->__get('theme')
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
 #3 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(77): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#4 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate('               ...')
-#5 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('               ...')
+#4 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate('?<div id="right...')
+#5 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('?<div id="right...')
 #6 /home/samubra/htdocs/yii/framework/web/CBaseController.php(207): COutputProcessor->run()
 #7 /home/samubra/htdocs/yii/framework/web/CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
-#8 /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php(31): CBaseController->endContent()
+#8 /home/samubra/htdocs/train/protected/modules/rights/views/layouts/main.php(25): CBaseController->endContent()
 #9 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
 #10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
 #11 /home/samubra/htdocs/yii/framework/web/CController.php(785): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#12 /home/samubra/htdocs/train/protected/controllers/SiteController.php(32): CController->render('index')
-#13 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#12 /home/samubra/htdocs/train/protected/modules/rights/controllers/AssignmentController.php(74): CController->render('view', Array)
+#13 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): AssignmentController->actionView()
 #14 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#17 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('index')
-#18 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index')
-#19 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#20 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#21 {main}
-REQUEST_URI=/train/index.php?r=site/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/page&view=about
+#15 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 /home/samubra/htdocs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#17 /home/samubra/htdocs/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 /home/samubra/htdocs/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 /home/samubra/htdocs/yii/framework/web/CController.php(292): CFilterChain->run()
+#21 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
+#23 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('rights')
+#24 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#25 /home/samubra/htdocs/train/index.php(16): CApplication->run()
+#26 {main}
+REQUEST_URI=/train/index.php?r=rights
 ---
-2013/03/13 23:36:11 [error] [exception.CException] exception 'CException' with message '属性 "CHttpRequest.homeUrl" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:131
+2013/03/16 23:32:34 [error] [exception.CException] exception 'CException' with message 'AuthItemController 无法找到请求的视图 "tasks".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
 Stack trace:
-#0 /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php(16): CComponent->__get('homeUrl')
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#3 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(77): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#4 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate('               ...')
-#5 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('               ...')
-#6 /home/samubra/htdocs/yii/framework/web/CBaseController.php(207): COutputProcessor->run()
-#7 /home/samubra/htdocs/yii/framework/web/CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
-#8 /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php(31): CBaseController->endContent()
-#9 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#11 /home/samubra/htdocs/yii/framework/web/CController.php(785): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#12 /home/samubra/htdocs/train/protected/controllers/SiteController.php(32): CController->render('index')
-#13 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
-#14 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#17 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('index')
-#18 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/index')
-#19 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#20 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#21 {main}
-REQUEST_URI=/train/index.php?r=site/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/page&view=about
+#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('tasks', Array, true)
+#1 /home/samubra/htdocs/train/protected/modules/rights/controllers/AuthItemController.php(167): CController->render('tasks', Array)
+#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): AuthItemController->actionTasks()
+#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /home/samubra/htdocs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /home/samubra/htdocs/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /home/samubra/htdocs/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /home/samubra/htdocs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /home/samubra/htdocs/yii/framework/web/CController.php(292): CFilterChain->run()
+#10 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('tasks')
+#12 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('rights/authItem...')
+#13 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /home/samubra/htdocs/train/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/train/index.php?r=rights/authItem/tasks
+HTTP_REFERER=http://localhost/train/index.php?r=rights/authItem/roles
 ---
-2013/03/13 23:43:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
+2013/03/16 23:34:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "rights/site/contact"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
 Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
+#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('rights/site/con...')
 #1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
 #2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
 #3 {main}
-REQUEST_URI=/train/index.php?r=product/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/index
+REQUEST_URI=/train/index.php?r=rights/site/contact
+HTTP_REFERER=http://localhost/train/index.php?r=rights
 ---
-2013/03/13 23:44:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/index
----
-2013/03/13 23:44:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/index
-HTTP_REFERER=http://localhost/train/index.php?r=product/index
----
-2013/03/13 23:44:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/index
-HTTP_REFERER=http://localhost/train/index.php?r=product/index
----
-2013/03/13 23:44:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/index
-HTTP_REFERER=http://localhost/train/index.php?r=product/index
----
-2013/03/13 23:45:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/index
-HTTP_REFERER=http://localhost/train/index.php?r=product/index
----
-2013/03/13 23:45:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
+2013/03/17 10:13:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
 Stack trace:
 #0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
 #1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
@@ -567,221 +159,7 @@ Stack trace:
 REQUEST_URI=/train/index.php?r=product/new&tag=new
 HTTP_REFERER=http://localhost/train/index.php?r=site/index
 ---
-2013/03/13 23:45:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:47:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:48:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:50:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:51:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:54:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:55:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:55:24 [error] [php] Undefined index: iconWrapper (/home/samubra/htdocs/train/protected/components/Menu.php:16)
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/zii/widgets/CMenu.php(159): Menu->renderMenu()
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(174): Menu->run()
-#2 /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php(72): SiteController->widget()
-#3 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#4 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
-#5 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(77): SiteController->renderFile()
-#6 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate()
-#7 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput()
-#8 /home/samubra/htdocs/yii/framework/web/CBaseController.php(207): CContentDecorator->run()
-#9 /home/samubra/htdocs/yii/framework/web/CBaseController.php(301): SiteController->endWidget()
-#10 /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php(31): SiteController->endContent()
-#11 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#12 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
-#13 /home/samubra/htdocs/yii/framework/web/CController.php(785): SiteController->renderFile()
-#14 /home/samubra/htdocs/train/protected/controllers/SiteController.php(32): SiteController->render()
-#15 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
-#17 /home/samubra/htdocs/yii/framework/web/CController.php(287): SiteController->runAction()
-#18 /home/samubra/htdocs/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
-#19 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): SiteController->run()
-#20 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#21 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#22 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=site/index
-in /home/samubra/htdocs/train/protected/components/Menu.php (16)
-in /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php (72)
-in /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php (31)
-2013/03/13 23:55:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:55:29 [error] [php] Undefined index: iconWrapper (/home/samubra/htdocs/train/protected/components/Menu.php:16)
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/zii/widgets/CMenu.php(159): Menu->renderMenu()
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(174): Menu->run()
-#2 /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php(72): SiteController->widget()
-#3 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#4 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
-#5 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(77): SiteController->renderFile()
-#6 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate()
-#7 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput()
-#8 /home/samubra/htdocs/yii/framework/web/CBaseController.php(207): CContentDecorator->run()
-#9 /home/samubra/htdocs/yii/framework/web/CBaseController.php(301): SiteController->endWidget()
-#10 /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php(31): SiteController->endContent()
-#11 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#12 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
-#13 /home/samubra/htdocs/yii/framework/web/CController.php(785): SiteController->renderFile()
-#14 /home/samubra/htdocs/train/protected/controllers/SiteController.php(32): SiteController->render()
-#15 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
-#17 /home/samubra/htdocs/yii/framework/web/CController.php(287): SiteController->runAction()
-#18 /home/samubra/htdocs/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
-#19 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): SiteController->run()
-#20 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#21 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#22 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=site/index
-in /home/samubra/htdocs/train/protected/components/Menu.php (16)
-in /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php (72)
-in /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php (31)
-2013/03/13 23:56:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:58:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/13 23:59:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/index&tag=popular
-HTTP_REFERER=http://localhost/train/index.php?r=site/index
----
-2013/03/14 00:07:23 [error] [exception.CException] exception 'CException' with message '属性 "CBreadcrumbs.separato" 未被定义.' in /home/samubra/htdocs/yii/framework/base/CComponent.php:174
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWidgetFactory.php(162): CComponent->__set('separato', '')
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'zii.widgets.CBr...', Array)
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(173): CBaseController->createWidget('zii.widgets.CBr...', Array)
-#3 /home/samubra/htdocs/train/themes/matrix/views/layouts/main.php(197): CBaseController->widget('zii.widgets.CBr...', Array)
-#4 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#5 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#6 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(77): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#7 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate('               ...')
-#8 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput('               ...')
-#9 /home/samubra/htdocs/yii/framework/web/CBaseController.php(207): COutputProcessor->run()
-#10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
-#11 /home/samubra/htdocs/train/themes/matrix/views/layouts/column2.php(31): CBaseController->endContent()
-#12 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#13 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#14 /home/samubra/htdocs/yii/framework/web/CController.php(785): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#15 /home/samubra/htdocs/train/protected/controllers/SiteController.php(72): CController->render('contact', Array)
-#16 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionContact()
-#17 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#18 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#19 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('contact')
-#21 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/contact')
-#22 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#23 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#24 {main}
-REQUEST_URI=/train/index.php?r=site/contact
-HTTP_REFERER=http://localhost/train/index.php?r=site/index
----
-2013/03/14 20:54:28 [error] [php] include(Rights.php): failed to open stream: No such file or directory (/home/samubra/htdocs/yii/framework/YiiBase.php:423)
-Stack trace:
-#0 /home/samubra/htdocs/train/themes/aquarius/views/layouts/main.php(171): spl_autoload_call()
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
-#3 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(77): SiteController->renderFile()
-#4 /home/samubra/htdocs/yii/framework/web/widgets/CContentDecorator.php(55): CContentDecorator->decorate()
-#5 /home/samubra/htdocs/yii/framework/web/widgets/COutputProcessor.php(45): CContentDecorator->processOutput()
-#6 /home/samubra/htdocs/yii/framework/web/CBaseController.php(207): CContentDecorator->run()
-#7 /home/samubra/htdocs/yii/framework/web/CBaseController.php(301): SiteController->endWidget()
-#8 /home/samubra/htdocs/train/themes/aquarius/views/layouts/column2.php(31): SiteController->endContent()
-#9 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#10 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): SiteController->renderInternal()
-#11 /home/samubra/htdocs/yii/framework/web/CController.php(785): SiteController->renderFile()
-#12 /home/samubra/htdocs/train/protected/controllers/SiteController.php(32): SiteController->render()
-#13 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
-#14 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
-#15 /home/samubra/htdocs/yii/framework/web/CController.php(287): SiteController->runAction()
-#16 /home/samubra/htdocs/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
-#17 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): SiteController->run()
-#18 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#19 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#20 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=site/index
-in /home/samubra/htdocs/train/themes/aquarius/views/layouts/main.php (171)
-in /home/samubra/htdocs/train/themes/aquarius/views/layouts/column2.php (31)
-in /home/samubra/htdocs/train/protected/controllers/SiteController.php (32)
-2013/03/14 20:55:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
+2013/03/17 10:21:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
 Stack trace:
 #0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
 #1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
@@ -789,231 +167,4 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/train/index.php?r=product/new&tag=new
 HTTP_REFERER=http://localhost/train/index.php?r=site/contact
----
-2013/03/14 20:55:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "product/new"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('product/new')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=product/new&tag=new
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/14 20:55:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "index/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('index/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=index/index
-HTTP_REFERER=http://localhost/train/index.php?r=product/new&tag=new
----
-2013/03/14 20:56:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "index/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('index/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=index/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/contact
----
-2013/03/14 20:58:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "index/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('index/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=index/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/contact
----
-2013/03/14 20:59:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "index/index"。' in /home/samubra/htdocs/yii/framework/web/CWebApplication.php:287
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('index/index')
-#1 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#2 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#3 {main}
-REQUEST_URI=/train/index.php?r=index/index
-HTTP_REFERER=http://localhost/train/index.php?r=site/contact
----
-2013/03/14 21:57:28 [error] [php] trim() expects parameter 1 to be string, array given (/home/samubra/htdocs/yii/framework/web/CUrlManager.php:295)
-Stack trace:
-#0 /home/samubra/htdocs/train/themes/aquarius/views/user/login.php(5): url()
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require()
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): LoginController->renderInternal()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(870): LoginController->renderFile()
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(783): LoginController->renderPartial()
-#5 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): LoginController->render()
-#6 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#7 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(287): LoginController->runAction()
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(266): LoginController->runActionWithFilters()
-#10 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): LoginController->run()
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#12 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#13 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/login
-in /home/samubra/htdocs/train/protected/lib/global.php (191)
-in /home/samubra/htdocs/train/themes/aquarius/views/user/login.php (5)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php (29)
-2013/03/14 22:04:15 [error] [php] Object of class CTheme could not be converted to string (/home/samubra/htdocs/train/themes/aquarius/views/user/login.php:2)
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(870): LoginController->renderFile()
-#1 /home/samubra/htdocs/yii/framework/web/CController.php(783): LoginController->renderPartial()
-#2 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): LoginController->render()
-#3 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(287): LoginController->runAction()
-#6 /home/samubra/htdocs/yii/framework/web/CController.php(266): LoginController->runActionWithFilters()
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): LoginController->run()
-#8 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#9 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#10 /home/samubra/htdocs/train/index.php(16): CWebApplication->run()
-REQUEST_URI=/train/index.php?r=user/login
-in /home/samubra/htdocs/train/themes/aquarius/views/user/login.php (2)
-in /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php (29)
-in /home/samubra/htdocs/train/index.php (16)
-2013/03/14 22:29:41 [error] [exception.CException] exception 'CException' with message 'RegistrationController 无法找到请求的视图 "//user/registration".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/registra...', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/RegistrationController.php(84): CController->render('//user/registra...', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): RegistrationController->actionRegistration()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/registrati...')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/registration
----
-2013/03/14 22:30:02 [error] [exception.CException] exception 'CException' with message 'LoginController 无法找到请求的视图 "//user/login".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/login
----
-2013/03/14 22:32:56 [error] [exception.CException] exception 'CException' with message 'LoginController 无法找到请求的视图 "//user/login".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/login
----
-2013/03/14 22:33:40 [error] [exception.CException] exception 'CException' with message 'LoginController 无法找到请求的视图 "//user/login".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/login
----
-2013/03/14 22:33:42 [error] [exception.CException] exception 'CException' with message 'LoginController 无法找到请求的视图 "//user/login".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/login
----
-2013/03/14 22:33:42 [error] [exception.CException] exception 'CException' with message 'LoginController 无法找到请求的视图 "//user/login".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/login
----
-2013/03/14 22:33:43 [error] [exception.CException] exception 'CException' with message 'LoginController 无法找到请求的视图 "//user/login".' in /home/samubra/htdocs/yii/framework/web/CController.php:879
-Stack trace:
-#0 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#1 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#2 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#5 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#6 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#7 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#8 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#9 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#10 {main}
-REQUEST_URI=/train/index.php?r=user/login
----
-2013/03/14 23:02:53 [error] [exception.CException] exception 'CException' with message 'LoginController 在它的视图中有一个额外的 endWidget() 呼叫.' in /home/samubra/htdocs/yii/framework/web/CBaseController.php:211
-Stack trace:
-#0 /home/samubra/htdocs/train/themes/aquarius/views/user/login.php(77): CBaseController->endWidget()
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#5 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#6 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#7 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#10 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#12 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#13 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#14 {main}
-REQUEST_URI=/train/index.php?r=user/login
-HTTP_REFERER=http://localhost/train/index.php?r=user/login
----
-2013/03/14 23:03:05 [error] [exception.CException] exception 'CException' with message 'LoginController 在它的视图中有一个额外的 endWidget() 呼叫.' in /home/samubra/htdocs/yii/framework/web/CBaseController.php:211
-Stack trace:
-#0 /home/samubra/htdocs/train/themes/aquarius/views/user/login.php(77): CBaseController->endWidget()
-#1 /home/samubra/htdocs/yii/framework/web/CBaseController.php(127): require('/home/samubra/h...')
-#2 /home/samubra/htdocs/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/samubra/h...', Array, true)
-#3 /home/samubra/htdocs/yii/framework/web/CController.php(870): CBaseController->renderFile('/home/samubra/h...', Array, true)
-#4 /home/samubra/htdocs/yii/framework/web/CController.php(783): CController->renderPartial('//user/login', Array, true)
-#5 /home/samubra/htdocs/train/protected/modules/user/controllers/LoginController.php(29): CController->render('//user/login', Array)
-#6 /home/samubra/htdocs/yii/framework/web/actions/CInlineAction.php(50): LoginController->actionLogin()
-#7 /home/samubra/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#8 /home/samubra/htdocs/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#9 /home/samubra/htdocs/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#10 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(283): CController->run('')
-#11 /home/samubra/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('user/login')
-#12 /home/samubra/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#13 /home/samubra/htdocs/train/index.php(16): CApplication->run()
-#14 {main}
-REQUEST_URI=/train/index.php?r=user/login
-HTTP_REFERER=http://localhost/train/index.php?r=user/login
 ---

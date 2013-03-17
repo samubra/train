@@ -22,6 +22,9 @@ return array(
 		'ext.giix-components.*', // giix components
 		'application.modules.user.models.*',
 		'application.modules.user.components.*',
+			'application.modules.rights.*',
+			'application.modules.rights.components.*',
+				
 	),
 
 	'modules'=>array(
@@ -49,13 +52,30 @@ return array(
 				'returnUrl' => array('/user/profile'),
 				'returnLogoutUrl' => array('/user/login'),
 				),
+			'rights'=>array(
+					'superuserName'=>'Admin',
+					'authenticatedName'=>'Authenticated',
+					'userIdColumn'=>'id',
+					'userNameColumn'=>'username',
+					'enableBizRule'=>true,
+					'enableBizRuleData'=>false,
+					'displayDescription'=>true,
+					'flashSuccessKey'=>'RightsSuccess',
+					'flashErrorKey'=>'RightsError',
+					'install'=>false,
+					'baseUrl'=>'/rights',
+					'layout'=>'rights.views.layouts.main',
+					'appLayout'=>'//layouts/column2',
+					//'cssFile'=>'rights.css',
+					'debug'=>false,
+			),
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'class' => 'WebUser',
+			'class' => 'RWebUser',
             'allowAutoLogin'=>true,
             'loginUrl' => array('/user/login'),
 		),
@@ -64,6 +84,10 @@ return array(
 					'class' => 'ext.bootstrap.components.Bootstrap',
 					'responsiveCss' => true,
 			),
+			'authManager'=>array(
+					'class'=>'RDbAuthManager',
+			),
+				
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -89,6 +113,7 @@ return array(
 			'password' => '635803',
 			'charset' => 'utf8',
 			'tablePrefix' => 'train_',
+				'enableProfiling'=>true,
 			
 		),
 		
@@ -100,8 +125,8 @@ return array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+              	    'ipFilters'=>array('127.0.0.1','192.168.1.215'),
 				),
 				// uncomment the following to show log messages on web pages
 				/*
@@ -121,7 +146,7 @@ return array(
 							'jquery-ui.js'=>false,
 			
 							'bootstrap.js'=>false,
-							'jquery.cookie.js'=>false,
+							//'jquery.cookie.js'=>false,
 							//'config.css'=>'public/css/config.css',
 					),
 			),
